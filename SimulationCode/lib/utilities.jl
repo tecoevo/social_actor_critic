@@ -124,6 +124,6 @@ ProgressMeter.next!(::Nothing) = nothing
 ProgressMeter.next!(channel::RemoteChannel) = put!(channel, true)
 
 function start_beta_binomial(N, mean, shape)
-    dist = BetaBinomial(N-1, 2*mean*shape, 2*(1-mean)*shape)
+    dist = Distributions.BetaBinomial(N-1, 2*mean*shape, 2*(1-mean)*shape)
     return probs(dist), String(Symbol(dist))
 end
